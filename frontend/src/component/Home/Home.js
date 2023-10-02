@@ -1,41 +1,50 @@
-// import React, { Fragment } from "react";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import "./Home.css";
-import {BsCaretDown} from "react-icons/bs"
-import Product from "./Product";
-
-const product = {
-  name: "Blue T-shirt",
-  image: [{url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTalbN9taFlP0m7-aj0TlCKFX8Ifm2_p9QV3w&usqp=CAU"}],
-  price: "₹3000",
-  _id:"Uday",
-}
+import { BsCaretDown } from "react-icons/bs";
+import MetaData from "../layout/MetaData";
+import { getProduct } from "../../actions/productAction";
+import { useSelector, useDispatch } from "react-redux";
+import ProductCard from "./ProductCard";
+import Loader from "../layout/Loader/Loader";
+import { useAlert } from "react-alert";
 
 const Home = () => {
+  const alert = useAlert();
+  const dispatch = useDispatch();
+  const { loading, error, products, productsCount } = useSelector(
+    (state) => state.products
+  );
+
+  useEffect(() => {
+    if (error) {
+      return alert.error(error);
+    }
+    dispatch(getProduct());
+  }, [dispatch, error ,alert]);
+
   return (
     <Fragment>
-      <div class="hero-section">
+      <MetaData title="ECOMMERCE" />
+      <div className="hero-section">
+        <div className="blurbg"></div>
         <div className="banner">
           <p>Welcome to Ecommerce</p>
           <h1>Find Amazing Products Below</h1>
         </div>
         <a href="#scroll-to">
-          <button className="scroll-down">SCROLL DOWN <BsCaretDown size={"2.5rem"}/></button>
+          <button className="scroll-down">
+            SCROLL DOWN <BsCaretDown size={"2.2vmax"} />
+          </button>
         </a>
       </div>
       <div className="scroll-to" id="scroll-to">
         <h2 className="homeHeading">Featured Products</h2>
-        <div className="container" id="container">
-          <Product product={product}/>
-          <Product product={product}/>
-          <Product product={product}/>
-          <Product product={product}/>
-          <Product product={product}/>
-          <Product product={product}/>
-          <Product product={product}/>
-          <Product product={product}/>
-
-        </div> 
+        {loading ? <Loader/> : (
+          <div className="container" id="container">
+          {products &&
+            products.map((product) => <ProductCard product={product} />)}
+        </div>
+        )}
       </div>
     </Fragment>
   );

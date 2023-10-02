@@ -10,6 +10,10 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.Header-mobile{
+    display: none;
+}
+
 .logo p{
     font-size: 1.5rem;
 }
@@ -46,4 +50,21 @@
 
 .list ul li{
     cursor: pointer;
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .Header{
+        display: none;
+    }
+    .Header-mobile{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        color: black;
+        height: 4rem;
+        border-bottom: 1px solid rgba(44, 45, 42, 0.25);
+        position: sticky;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
 }
