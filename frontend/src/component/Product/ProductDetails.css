@@ -12,7 +12,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
     padding: 2vmax;
     box-sizing: border-box;
     border: 1px solid white;
@@ -23,7 +22,9 @@
   }
 
   .CarouselImage {
-    width: 100%;
+    width: 20vmax;
+    height: 30vmax;
+    object-fit: fill;
   }
   
   .detailsBlock-1 > h2 {
@@ -66,12 +67,16 @@
   }
   
   .detailsBlock-3-1-1 > button {
+    width: 3rem;
+    font-size: 1.5rem;
     border: none;
+    border-radius: 0.4rem;
     background-color: rgba(0, 0, 0, 0.616);
-    padding: 0.5vmax;
+    padding: 0.1vmax;
     cursor: pointer;
     color: white;
     transition: all 0.5s;
+    margin: 0rem;
   }
   .detailsBlock-3-1-1 > button:hover {
     background-color: rgba(0, 0, 0, 0.767);
@@ -79,11 +84,11 @@
   
   .detailsBlock-3-1-1 > input {
     border: none;
-    padding: 0.5vmax;
-    width: 1vmax;
+    /* padding: 0vmax; */
+    width: 40%;
     text-align: center;
     outline: none;
-    font: 400 0.8vmax "Roboto";
+    font-size: 1vmax;
     color: rgba(0, 0, 0, 0.74);
   }
   
@@ -169,16 +174,22 @@
   
   .reviewCard {
     flex: none;
-  
+    border-radius: 1rem;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.226);
     border: 1px solid rgba(56, 56, 56, 0.116);
-    width: 30vmax;
+    width: 20vmax;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 1vmax;
-    padding: 3vmax;
+    padding: 2vmax;
   }
+
+  .reviewCard:hover{
+    transform: scale(0.95);
+    transition: all 0.3s ease-in-out;
+  }
+
   .reviewCard > img {
     width: 5vmax;
   }
@@ -197,16 +208,19 @@
     color: rgba(0, 0, 0, 0.548);
   }
   
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 768px) {
     .ProductDetails {
       flex-direction: column;
       height: unset;
+      padding: 6vmax;
     }
   
     .ProductDetails > div:last-child {
       align-items: center;
+      width: 100%;
+      padding: 0px;
     }
-  
+    
     .detailsBlock-1 > h2 {
       font-size: 2.8vmax;
       text-align: center;
@@ -219,6 +233,7 @@
   
     .detailsBlock-2 {
       justify-content: center;
+      width: 100%;
     }
     .detailsBlock-2 > span {
       font-size: 1.5vmax;
@@ -250,14 +265,19 @@
     .detailsBlock-3-1 > button:last-child {
       font: 500 1.7vmax "Roboto";
       padding: 1.5vmax;
-      width: 20vmax;
+      width: 30vmax;
       margin: 3vmax 0;
+    }
+
+    .detailsBlock-3{
+      width: 100%;
     }
   
     .detailsBlock-3 > p {
       padding: 2.5vmax 0;
       text-align: center;
       font: 400 2vmax "Roboto";
+      
     }
   
     .detailsBlock-4 {
@@ -271,7 +291,7 @@
     .submitReview {
       font: 500 1.7vmax "Roboto";
       padding: 1.5vmax;
-      width: 20vmax;
+      width: 30vmax;
       margin: 3vmax 0;
     }
   

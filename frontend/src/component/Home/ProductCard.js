@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
     edit: false,
     color: "black",
     activeColor: "tomato",
-    size: window.innerWidth < 600 ? 15 : 20,
+    size: window.innerWidth < 600 ? 20 : 25,
     value: product.ratings,
     isHalf:true
 };

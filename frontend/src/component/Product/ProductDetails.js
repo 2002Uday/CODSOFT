@@ -2,23 +2,20 @@ import React, { Fragment, useEffect } from "react";
 import Carousel from "react-material-ui-carousel";
 import "./ProductDetails.css";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  clearErrors,
-  getProductDetails,
-} from "../../actions/productAction";
+import { clearErrors, getProductDetails } from "../../actions/productAction";
 import { useAlert } from "react-alert";
 import { useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
+import ReviewCard from "./ReviewCard";
+import Loader from "../layout/Loader/Loader";
+import MetaData from "../layout/MetaData";
 
 const ProductDetails = ({ match }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
 
-  const { product, error } = useSelector(
-    (state) => state.productDetails
-  );
+  const { product, loading, error } = useSelector((state) => state.productDetails);
   const { id } = useParams();
-
 
   const options = {
     edit: false,
@@ -26,20 +23,28 @@ const ProductDetails = ({ match }) => {
     activeColor: "tomato",
     size: window.innerWidth < 600 ? 15 : 20,
     value: product.ratings,
-    isHalf:true,
-};
-
+    isHalf: true,
+  };
 
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
+    // if (reviewError) {
+    //   alert.error(reviewError);
+    //   dispatch(clearErrors());
+    // }
     dispatch(getProductDetails(id));
   }, [dispatch, id, error, alert]);
 
   return (
     <Fragment>
+      {loading ? (
+        <Loader />
+      ) : (
+        <Fragment>
+          <MetaData title={`${product.name} -- ECOMMERCE`}/>
           <div className="ProductDetails">
             <div>
               <Carousel>
@@ -75,9 +80,7 @@ const ProductDetails = ({ match }) => {
                     <input readOnly type="number" value="1" />
                     <button>+</button>
                   </div>
-                  <button>
-                    Add to Cart
-                  </button>
+                  <button>Add to Cart</button>
                 </div>
                 <p>
                   Status:
@@ -90,13 +93,25 @@ const ProductDetails = ({ match }) => {
               <div className="detailsBlock-4">
                 Description : <p>{product.description}</p>
               </div>
-              
-              <button className="submitReview">
-                Submit Review
-              </button>
 
+              <button className="submitReview">Submit Review</button>
             </div>
           </div>
+
+          <h3 className="reviewsHeading">REVIEWS</h3>
+
+          {product.reviews && product.reviews[0] ? (
+            <div className="reviews">
+              {product.reviews &&
+                product.reviews.map((review) => (
+                  <ReviewCard key={review._id} review={review} />
+                ))}
+            </div>
+          ) : (
+            <p className="noReviews">No Reviews Yet</p>
+          )}
+        </Fragment>
+      )}
     </Fragment>
   );
 };
