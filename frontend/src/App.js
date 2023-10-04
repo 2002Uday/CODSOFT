@@ -7,6 +7,7 @@ import Footer from './component/layout/Footer/Footer';
 import Home from "./component/Home/Home.js";
 import ProductDetails from "./component/Product/ProductDetails.js";
 import Products from "./component/Product/Products.js";
+import LoginSignUp from './component/User/LoginSignUp';
 
 
 
@@ -27,6 +28,7 @@ function App() {
           <Route extact path="/" Component={Home} />
           <Route extact path="/product/:id" Component={ProductDetails}  />
           <Route extact path="/products" Component={Products}  />
+          <Route extact path="/login" Component={LoginSignUp}  />
         </Routes>
       <Footer/>
     </Router>
