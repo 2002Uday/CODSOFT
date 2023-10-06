@@ -77,19 +77,21 @@
   
   .category-link {
     list-style: none;
-    color: rgba(0, 0, 0, 0.61);
+    background-color: rgb(48, 48, 48);
+    color: white;
     font: 800 0.9vmax "Roboto";
     margin: 0.4vmax;
     cursor: pointer;
-    transition: all 0.5s;
     border: 1px solid black;
     padding: 0.5rem;
     border-radius: 0.5rem;
   }
   .category-link:hover {
-    color: white;
-    background-color: rgb(48, 48, 48);
-    box-shadow: 0.3rem 0.3rem 0rem 0rem rgb(117, 117, 117);
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 0.3rem 0.3rem 0rem 0rem rgb(48, 48, 48);
+    transition: all 0.4s;
     
   }
   

@@ -1,7 +1,6 @@
 import React, { Fragment, useRef, useState, useEffect } from "react";
 import "./LoginSignUp.css";
 import Loader from "../layout/Loader/Loader";
-import { Link, Navigate } from "react-router-dom";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import FaceIcon from "@material-ui/icons/Face";
@@ -9,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 
-const LoginSignUp = ({ Navigate, location }) => {
+const LoginSignUp = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
 
@@ -33,7 +32,7 @@ const LoginSignUp = ({ Navigate, location }) => {
   const { name, email, password } = user;
 
   const [avatar, setAvatar] = useState("/Profile.png");
-  const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
+  // const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
 
   const loginSubmit = (e) => {
     e.preventDefault();
@@ -58,7 +57,7 @@ const LoginSignUp = ({ Navigate, location }) => {
 
       reader.onload = () => {
         if (reader.readyState === 2) {
-          setAvatarPreview(reader.result);
+          // setAvatarPreview(reader.result);
           setAvatar(reader.result);
         }
       };
@@ -69,7 +68,6 @@ const LoginSignUp = ({ Navigate, location }) => {
     }
   };
 
-  const redirect = "/account";
 
   useEffect(() => {
     if (error) {
@@ -77,10 +75,7 @@ const LoginSignUp = ({ Navigate, location }) => {
       dispatch(clearErrors());
     }
 
-    if (isAuthenticated) {
-      Navigate(redirect);
-    }
-  }, [dispatch, error, alert,Navigate, isAuthenticated]);
+  }, [dispatch, error, alert, isAuthenticated]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {
@@ -133,7 +128,6 @@ const LoginSignUp = ({ Navigate, location }) => {
                       onChange={(e) => setLoginPassword(e.target.value)}
                     />
                   </div>
-                  <Link to="/password/forgot">Forget Password ?</Link>
                   <input type="submit" value="Login" className="loginBtn" />
                 </form>
                 <form
