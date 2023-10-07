@@ -10,6 +10,7 @@ import { useAlert } from "react-alert";
 const Header = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const iconsize = "2rem";
+  const white = "white"
   const [isopen, setisopen] = useState(false);
   const togglemenu = () => setisopen(!isopen);
   const dispatch = useDispatch();
@@ -72,6 +73,7 @@ const Header = () => {
             ) : (
               <Fragment>
                 <GrClose
+                color={white}
                   size={iconsize}
                   cursor={"pointer"}
                   onClick={togglemenu}
@@ -81,7 +83,7 @@ const Header = () => {
                     <ul>
                       {isAuthenticated && user.role === "admin" ? (
                         <li>
-                          <a href="/dashboard">Dashboard</a>
+                          <a href="/admin/product">ADD PRODUCT</a>
                         </li>
                       ) : (
                         <></>
@@ -90,23 +92,20 @@ const Header = () => {
                         <a href="/">HOME</a>
                       </li>
                       <li>
-                        {" "}
                         <a href="/products">PRODUCTS</a>
                       </li>
                       <li>
-                        {" "}
-                        <a href="/contact">CONTACT</a>{" "}
+                        <a href="/contact">CONTACT</a>
                       </li>
                       <li>
-                        {" "}
-                        <a href="/about">ABOUT</a>{" "}
+                        <a href="/about">ABOUT</a>
                       </li>
                       <li className="cart-li">
                         <a href="/cart">
                           <button className="cart-btn">Go to Cart</button>
                         </a>
                       </li>
-                      
+
                       {isAuthenticated ? (
                         <li>
                           <button className="logout-btn" onClick={logoutUser}>

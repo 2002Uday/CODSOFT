@@ -19,15 +19,15 @@ import Payment from "./component/Cart/Payment";
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import OrderSuccess from "./component/Cart/OrderSuccess.js"
+import NewProduct from './component/Product/NewProduct';
 
 
 function App() {
 
-  const { isAuthenticated } = useSelector(
+  const { isAuthenticated , user } = useSelector(
     (state) => state.user
   );
   
-
   const [stripeApiKey, setStripeApiKey] = useState("");
 
   async function getStripeApiKey() {
@@ -51,9 +51,7 @@ function App() {
     }
     
   }, [])
-  
 
-  const user = isAuthenticated;
 
   return (
     <Router>
@@ -62,21 +60,24 @@ function App() {
           <Route extact path="/" Component={Home} />
           <Route extact path="/product/:id" Component={ProductDetails}  />
           <Route extact path="/products" Component={Products}  />
-          <Route extact path="/login" element={!user ? <LoginSignUp /> : <Navigate to="/" />} />
+          <Route extact path="/login" element={!isAuthenticated ? <LoginSignUp /> : <Navigate to="/" />} />
           <Route extact path="/cart" Component={Cart}  />
-          <Route extact path="/shipping" element={!user ? <LoginSignUp /> : <Shipping/>}/>
-          <Route extact path="/order/confirm" element={!user ? <LoginSignUp /> : <ConfirmOrder/>}/>
+          <Route extact path="/shipping" element={!isAuthenticated ? <LoginSignUp /> : <Shipping/>}/>
+          <Route extact path="/order/confirm" element={!isAuthenticated ? <LoginSignUp /> : <ConfirmOrder/>}/>
         </Routes>
         {stripeApiKey &&(
           <Elements stripe={loadStripe(stripeApiKey)}>
           <Routes>
-            <Route extact path="/process/payment" element={!user ? <LoginSignUp /> : <Payment/>} />
+            <Route extact path="/process/payment" Component={Payment}/>
           </Routes>
         </Elements>
         )}
         <Routes>
           <Route extact path="/success" Component={OrderSuccess}/>
         </Routes>
+        <Routes>
+            <Route extact path="/admin/product" element={!isAuthenticated ? <LoginSignUp /> : <NewProduct />} />
+          </Routes>
       <Footer/>
     </Router>
   );

@@ -26,7 +26,7 @@
     width: 8vmax;
     height: 8vmax;
     border-radius: 50%;
-    border-left: 4px solid #FF3D00;
+    border-left: 4px solid #29ff7e;
     border-bottom: 4px solid transparent;
     animation: rotation 0.5s linear infinite reverse;
   }

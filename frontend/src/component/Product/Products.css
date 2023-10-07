@@ -1,3 +1,8 @@
+.product-page{
+  background-color: white;
+  border-radius: 6rem;
+}
+
 .productsHeading {
     margin: 2vmax auto;
     width: 15vw;
@@ -19,7 +24,7 @@
   .paginationBox {
     display: flex;
     justify-content: center;
-    margin: 6vmax;
+    padding: 6vmax;
   }
   
   .pagination {
@@ -51,7 +56,7 @@
   }
   
   .page-item:hover {
-    background-color: rgb(230, 230, 230);
+    background-color: #29ff7e;
   }
   
   .page-item:hover .page-link {
@@ -77,22 +82,19 @@
   
   .category-link {
     list-style: none;
-    background-color: rgb(48, 48, 48);
-    color: white;
-    font: 800 0.9vmax "Roboto";
+    background-color: transparent;
+    color: black;
+    font: 800 0.8vmax "Roboto";
     margin: 0.4vmax;
     cursor: pointer;
-    border: 1px solid black;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
+    border: 1px solid #161616;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
   }
   .category-link:hover {
-    color: black;
-    background-color: white;
-    border: 1px solid black;
-    box-shadow: 0.3rem 0.3rem 0rem 0rem rgb(48, 48, 48);
+    background-color: #29ff7e;
+    border: none;
     transition: all 0.4s;
-    
   }
   
   .filterBox > fieldset {

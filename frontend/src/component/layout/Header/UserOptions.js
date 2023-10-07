@@ -2,9 +2,9 @@ import React, { Fragment, useState } from "react";
 import "./Header.css";
 import { SpeedDial, SpeedDialAction } from "@material-ui/lab";
 import Backdrop from "@material-ui/core/Backdrop";
-import DashboardIcon from "@material-ui/icons/Dashboard";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import AddIcon from '@mui/icons-material/Add';
 import { useAlert } from "react-alert";
 import { logout } from "../../../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,7 +20,7 @@ const UserOptions = ({ user }) => {
     {
       icon: (
         <ShoppingCartIcon
-          style={{ color: cartItems.length > 0 ? "tomato" : "unset" }}
+          style={{ color: cartItems.length > 0 ? "29ff7e" : "unset" }}
         />
       ),
       name: `Cart(${cartItems.length})`,
@@ -31,14 +31,16 @@ const UserOptions = ({ user }) => {
 
   if (user.role === "admin") {
     options.unshift({
-      icon: <DashboardIcon />,
-      name: "Dashboard",
-      func: dashboard,
+      icon: <AddIcon />,
+      name: "Add Product",
+      func: addProduct,
     });
   }
 
-  function dashboard() {
-    navigate("/dashboard");
+  
+
+  function addProduct() {
+    navigate("/admin/product");
   }
 
   function cart() {

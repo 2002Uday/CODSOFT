@@ -7,6 +7,11 @@ import { useSelector, useDispatch } from "react-redux";
 import ProductCard from "./ProductCard";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
+import img1 from "../../images/jeans1.jpg";
+import img2 from "../../images/1.jpg";
+import img4 from "../../images/hipster.jpg";
+import img5 from "../../images/top1.jpg";
+
 
 const Home = () => {
   const alert = useAlert();
@@ -27,14 +32,19 @@ const Home = () => {
     <Fragment>
       <MetaData title="ECOMMERCE" />
       <div className="hero-section">
-        <div className="blurbg"></div>
+        <div className="hero-img">
+          <img src={img1} alt="img"/>
+          <img src={img2} alt="img"/>
+          <img src={img4} alt="img"/>
+          <img src={img5} alt="img"/>
+        </div>
         <div className="banner">
           <p>Welcome to Ecommerce</p>
           <h1>Find Amazing Products Below</h1>
         </div>
         <a href="#scroll-to">
           <button id="scroll-button" className="scroll-down">
-            SCROLL DOWN <BsCaretDown size={"2.2vmax"} />
+            SHOP NOW <BsCaretDown size={"2.2vmax"} />
           </button>
         </a>
       </div>

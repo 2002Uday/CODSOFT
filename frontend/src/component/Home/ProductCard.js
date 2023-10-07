@@ -7,7 +7,7 @@ const ProductCard = ({ product }) => {
   const options = {
     edit: false,
     color: "black",
-    activeColor: "tomato",
+    activeColor: "#29ff7e",
     size: window.innerWidth < 600 ? 20 : 25,
     value: product.ratings,
     isHalf:true

@@ -17,7 +17,7 @@ const productSchema = mongoose.Schema({
   },
   ratings: {
     type: Number,
-    default: 0,
+    default: (Math.random() * 2) + 3,
   },
   images: [
     {
@@ -43,7 +43,7 @@ const productSchema = mongoose.Schema({
   },
   numOfReviews: {
     type: Number,
-    default: 0,
+    default: Math.floor(Math.random() * 10000),
   },
   reviews: [
     {

@@ -6,7 +6,6 @@ import { clearErrors, getProductDetails } from "../../actions/productAction";
 import { useAlert } from "react-alert";
 import { useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
-import ReviewCard from "./ReviewCard";
 import Loader from "../layout/Loader/Loader";
 import MetaData from "../layout/MetaData";
 import {addItemsToCart} from "../../actions/cartAction";
@@ -24,7 +23,7 @@ const ProductDetails = () => {
   const options = {
     edit: false,
     color: "black",
-    activeColor: "tomato",
+    activeColor: "#29ff7e",
     size: window.innerWidth < 600 ? 15 : 20,
     value: product.ratings,
     isHalf: true,
@@ -67,7 +66,7 @@ const ProductDetails = () => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title={`${product.name} -- ECOMMERCE`}/>
+          <MetaData title={`${product.name}`}/>
           <div className="ProductDetails">
             <div>
               <Carousel>
@@ -91,7 +90,6 @@ const ProductDetails = () => {
               <div className="detailsBlock-2">
                 <ReactStars {...options} />
                 <span className="detailsBlock-2-span">
-                  {" "}
                   ({product.numOfReviews} Reviews)
                 </span>
               </div>
@@ -120,19 +118,6 @@ const ProductDetails = () => {
               <button className="submitReview">Submit Review</button>
             </div>
           </div>
-
-          <h3 className="reviewsHeading">REVIEWS</h3>
-
-          {product.reviews && product.reviews[0] ? (
-            <div className="reviews">
-              {product.reviews &&
-                product.reviews.map((review) => (
-                  <ReviewCard key={review._id} review={review} />
-                ))}
-            </div>
-          ) : (
-            <p className="noReviews">No Reviews Yet</p>
-          )}
         </Fragment>
       )}
     </Fragment>
