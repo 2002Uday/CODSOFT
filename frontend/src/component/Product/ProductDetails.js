@@ -115,7 +115,6 @@ const ProductDetails = () => {
                 Description : <p>{product.description}</p>
               </div>
 
-              <button className="submitReview">Submit Review</button>
             </div>
           </div>
         </Fragment>

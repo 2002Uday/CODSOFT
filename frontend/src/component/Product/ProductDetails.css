@@ -130,21 +130,6 @@
     font: 300 0.8vmax sans-serif;
   }
   
-  .submitReview {
-    border: none;
-    background-color: #29ff7e;
-    font: 800 0.7vmax "Roboto";
-    border-radius: 20px;
-    padding: 0.6vmax 2vmax;
-    margin: 1vmax 0;
-    cursor: pointer;
-    transition: all 0.5s;
-  }
-  .submitReview:hover {
-    background-color: #25d66c;
-    transition: all 0.5s;
-    transform: scale(1.1);
-  }
   
   .submitDialog {
     display: flex;

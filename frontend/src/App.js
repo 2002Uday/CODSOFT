@@ -24,7 +24,7 @@ import NewProduct from './component/Product/NewProduct';
 
 function App() {
 
-  const { isAuthenticated , user } = useSelector(
+  const { isAuthenticated } = useSelector(
     (state) => state.user
   );
   

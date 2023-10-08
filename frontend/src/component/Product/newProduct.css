@@ -24,6 +24,7 @@
     width: 40vh;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.267);
+    border-radius: 1rem;
   }
   
   .createProductForm > div {
@@ -85,8 +86,7 @@
   }
   #createProductBtn {
     border: none;
-    background-color: tomato;
-    color: white;
+    background-color: #29ff7e;
     font: 300 0.9vmax "Roboto";
     width: 100%;
     padding: 0.8vmax;

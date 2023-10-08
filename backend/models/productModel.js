@@ -43,7 +43,7 @@ const productSchema = mongoose.Schema({
   },
   numOfReviews: {
     type: Number,
-    default: Math.floor(Math.random() * 10000),
+    default: Math.floor(Math.random() * 100000),
   },
   reviews: [
     {
