@@ -14,7 +14,7 @@ const categories = [
   "Footwear",
   "Bottom",
   "Tops",
-  "Attire",
+  "Games",
   "Camera",
   "SmartPhones",
 ];

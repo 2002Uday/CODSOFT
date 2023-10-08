@@ -34,7 +34,7 @@ const NewProduct = ({ history }) => {
     "Footwear",
     "Bottom",
     "Tops",
-    "Attire",
+    "Games",
     "Camera",
     "SmartPhones",
   ];
