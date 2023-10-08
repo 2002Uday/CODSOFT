@@ -114,19 +114,20 @@
     width: 14vmax;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     text-decoration: none;
-    background-color: #161616;
-    border: 1rem solid #161616;
+    box-shadow: 0rem 0rem 2rem 0rem rgba(121, 121, 121, 0.336);
     border-radius: 1rem;
-    color: white;
+    color: black;
     margin: 2vmax;
     transition: all 0.5s;
-    padding-bottom: 0.5vmax;
+    padding: 0.5vmax;
   }
   
   .productCard > img {
     width: 100%;
-    height: 80%;
+    height: 15vmax;
+    object-fit: contain;
     border-radius: 1rem;
   }
   
